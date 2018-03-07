@@ -1,0 +1,8 @@
+#!/bin/bash
+
+touch /tmp/crontmp
+
+echo "0 4 * * 1 (apt-get update -y && apt-get upgrade -y) | tee /var/log/update_script.log" >> /tmp/crontmp
+
+crontab /tmp/crontmp
+rm /tmp/crontab
